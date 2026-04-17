@@ -25,7 +25,7 @@ const BANANA_WASTE_PRODUCTS: Product[] = [
     name: 'Kulit Pisang Organik',
     description: 'Kulit pisang segar berkualitas tinggi, cocok untuk pupuk dan bahan kompos',
     price: 15000,
-    image: '🍌',
+    image: '/products/kulit-pisang.jpg',
     seller: 'Tani Organik Jaya',
     category: 'limbah-pisang'
   },
@@ -34,7 +34,7 @@ const BANANA_WASTE_PRODUCTS: Product[] = [
     name: 'Bonggol Pisang Premium',
     description: 'Bonggol pisang bersih, dapat digunakan untuk kerajinan atau pupuk',
     price: 25000,
-    image: '🌴',
+    image: '/products/bonggol-pisang.jpg',
     seller: 'Harmoni Sawah',
     category: 'limbah-pisang'
   },
@@ -43,7 +43,7 @@ const BANANA_WASTE_PRODUCTS: Product[] = [
     name: 'Serat Pisang (Abaca)',
     description: 'Serat pisang pilihan untuk kerajinan tangan dan tas handmade',
     price: 45000,
-    image: '🎨',
+    image: '/products/serat-pisang.jpg',
     seller: 'Kerajinan Tradisional',
     category: 'limbah-pisang'
   },
@@ -52,7 +52,7 @@ const BANANA_WASTE_PRODUCTS: Product[] = [
     name: 'Daun Pisang Segar',
     description: 'Daun pisang besar untuk alas makanan atau kerajinan, organik tanpa kimia',
     price: 12000,
-    image: '🍃',
+    image: '/products/daun-pisang.jpg',
     seller: 'Petani Organik Sejati',
     category: 'limbah-pisang'
   },
@@ -61,7 +61,7 @@ const BANANA_WASTE_PRODUCTS: Product[] = [
     name: 'Ampas Pisang (Banana Waste)',
     description: 'Ampas pisang berkualitas, tinggi nutrisi untuk pakan ternak',
     price: 20000,
-    image: '📦',
+    image: '/products/ampas-pisang.jpg',
     seller: 'Peternakan Maju',
     category: 'limbah-pisang'
   },
@@ -70,7 +70,7 @@ const BANANA_WASTE_PRODUCTS: Product[] = [
     name: 'Mix Limbah Pisang (Bonus)',
     description: 'Paket hemat berisi kulit, bonggol, dan daun pisang segar',
     price: 40000,
-    image: '🎁',
+    image: '/products/mix-limbah-pisang.jpg',
     seller: 'Tani Organik Jaya',
     category: 'limbah-pisang'
   },
@@ -79,7 +79,7 @@ const BANANA_WASTE_PRODUCTS: Product[] = [
     name: 'Bonggol Pisang Halus',
     description: 'Bonggol pisang yang sudah diproses halus, untuk pupuk khusus',
     price: 35000,
-    image: '💎',
+    image: '/products/bonggol-halus.jpg',
     seller: 'Petani Organik Sejati',
     category: 'limbah-pisang'
   },
@@ -88,7 +88,7 @@ const BANANA_WASTE_PRODUCTS: Product[] = [
     name: 'Kulit Pisang Kering (Chips)',
     description: 'Kulit pisang yang sudah dikeringkan, tahan lama dan mudah disimpan',
     price: 18000,
-    image: '☀️',
+    image: '/products/kulit-pisang-kering.jpg',
     seller: 'Harmoni Sawah',
     category: 'limbah-pisang'
   }
@@ -180,8 +180,12 @@ export default function MarketplacePage() {
             {filteredProducts.map(product => (
               <Card key={product.id} className="overflow-hidden hover:shadow-lg transition border-0 flex flex-col">
                 {/* Product Image */}
-                <div className="h-40 bg-gradient-to-br from-emerald-100 via-amber-50 to-orange-100 flex items-center justify-center text-6xl hover:scale-105 transition duration-300">
-                  {product.image}
+                <div className="h-40 bg-gray-200 overflow-hidden hover:scale-105 transition duration-300">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 {/* Product Info */}

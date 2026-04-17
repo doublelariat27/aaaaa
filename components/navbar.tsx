@@ -6,6 +6,8 @@ import { createClient } from '@/lib/supabase/client'
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { getOrCreateGuestUser } from '@/lib/guest-user'
+import { ShoppingCart } from 'lucide-react'
+import { useCart } from '@/lib/cart-context'
 
 export function Navbar() {
   const router = useRouter()
@@ -14,6 +16,7 @@ export function Navbar() {
   const [loading, setLoading] = useState(true)
   const [isGuest, setIsGuest] = useState(false)
   const supabase = createClient()
+  const { itemCount } = useCart()
 
   useEffect(() => {
     const checkUser = async () => {
@@ -99,8 +102,18 @@ export function Navbar() {
             )}
           </div>
 
-          {/* Auth Buttons */}
+          {/* Cart and Auth Buttons */}
           <div className="flex items-center gap-4">
+            <Link href="/cart">
+              <button className="relative p-2 text-gray-700 hover:text-emerald-600 transition group">
+                <ShoppingCart size={24} />
+                {itemCount > 0 && (
+                  <span className="absolute top-0 right-0 bg-emerald-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center group-hover:bg-emerald-700 transition">
+                    {itemCount}
+                  </span>
+                )}
+              </button>
+            </Link>
             {!loading && !isGuest ? (
               <div className="flex items-center gap-3">
                 <span className="text-sm text-gray-700">{user.email?.split('@')[0] || 'User'}</span>

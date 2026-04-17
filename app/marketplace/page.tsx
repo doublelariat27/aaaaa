@@ -104,7 +104,7 @@ export default function MarketplacePage() {
   const filteredProducts = products
     .filter(product => {
       const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                           product.description.toLowerCase().includes(searchQuery.toLowerCase())
+        product.description.toLowerCase().includes(searchQuery.toLowerCase())
       return matchesSearch
     })
     .sort((a, b) => {
@@ -137,7 +137,7 @@ export default function MarketplacePage() {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <Leaf className="w-8 h-8 text-emerald-600" />
-            <h1 className="text-4xl font-bold text-gray-900">Marketplace Limbah Pisang</h1>
+            <h1 className="text-4xl font-bold text-gray-900">Edible Cutlery Limbah Pisang Pertama di Indonesia</h1>
           </div>
           <p className="text-gray-600 text-lg">Produk limbah pisang organik berkualitas tinggi dari petani terpercaya</p>
         </div>
@@ -181,8 +181,8 @@ export default function MarketplacePage() {
               <Card key={product.id} className="overflow-hidden hover:shadow-lg transition border-0 flex flex-col">
                 {/* Product Image */}
                 <div className="h-40 bg-gray-200 overflow-hidden hover:scale-105 transition duration-300">
-                  <img 
-                    src={product.image} 
+                  <img
+                    src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover"
                   />
@@ -194,12 +194,12 @@ export default function MarketplacePage() {
                   <p className="text-xs text-emerald-700 font-semibold mb-2 line-clamp-1">
                     {product.seller}
                   </p>
-                  
+
                   {/* Name */}
                   <h3 className="text-sm font-bold text-gray-900 mb-2 line-clamp-2 h-10">
                     {product.name}
                   </h3>
-                  
+
                   {/* Description */}
                   <p className="text-gray-600 text-xs mb-4 line-clamp-2 flex-grow">
                     {product.description}
@@ -213,7 +213,7 @@ export default function MarketplacePage() {
                       </p>
                     </div>
 
-                    <button 
+                    <button
                       onClick={() => handleAddToCart(product)}
                       className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 rounded-lg transition flex items-center justify-center gap-2"
                     >

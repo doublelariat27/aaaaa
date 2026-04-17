@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import { CartProvider } from '@/lib/cart-context'
-import { Toaster } from 'sonner'
+import { Providers } from './providers'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -39,11 +38,10 @@ export default function RootLayout({
   return (
     <html lang="id" className="bg-gradient-to-b from-amber-50 to-white">
       <body className="font-sans antialiased">
-        <CartProvider>
+        <Providers>
           {children}
-          <Toaster />
           {process.env.NODE_ENV === 'production' && <Analytics />}
-        </CartProvider>
+        </Providers>
       </body>
     </html>
   )
